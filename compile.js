@@ -14,12 +14,15 @@ async function compileTwig() {
     // Fetch posts using axios instead of fetch
     const response = await axios.get("http://localhost:4000/posts");
     const posts = response.data; // Axios automatically parses JSON
-    console.log(posts);
+
     // Sort posts by date (newest first)
     posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    // Render template with posts data
-    twig.renderFile(twigSrc, { posts }, function (err, html) {
+    // Extract unique categoryIds
+    const categoryIds = [...new Set(posts.map((post) => post.categoryId))];
+
+    // Render template with posts data and categoryIds
+    twig.renderFile(twigSrc, { posts, categoryIds }, function (err, html) {
       if (err) {
         return console.error("Twig compile error:", err);
       }

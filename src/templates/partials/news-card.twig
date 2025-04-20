@@ -1,9 +1,9 @@
-<article class="news-item">
+<article class="news-item" data-category="{{ post.categoryId }}">
     <div class="news-image">
         <img src="{{ post.thumbnail }}" alt="{{ post.title }}">
     </div>
     <div class="news-content">
-        <span class="news-category">{{ post.category }}</span>
+        <span class="news-category">Catégorie {{ post.categoryId }}</span>
         <h2 class="news-title">{{ post.title }}</h2>
         <p class="news-intro">{{ post.intro }}</p>
         <time class="news-date">{{ post.date|date("d/m/Y") }}</time>

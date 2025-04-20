@@ -7,13 +7,23 @@
     </head>
     <body>
         <div class="container">
-            {% include 'partials/readme.twig' %}
-        </div>
+            <h1>Nouvelles</h1>
 
-        <div class="news-container">
-            {% for post in posts %}
-                {% include 'partials/news-card.twig' with { post: post } %}
-            {% endfor %}
+            {# Change to dropdown filter #}
+            <div class="category-filter">
+                <select id="categorySelect" class="filter-select">
+                    <option value="all">Toutes les catégories</option>
+                    {% for categoryId in categoryIds %}
+                        <option value="{{ categoryId }}">Catégorie {{ categoryId }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="news-container">
+                {% for post in posts %}
+                    {% include 'partials/news-card.twig' with { post: post } %}
+                {% endfor %}
+            </div>
         </div>
 
         {% include 'partials/footer.twig' %}

@@ -6,6 +6,7 @@
 :root {
   --bgColor: #eaeae8;
   --textColor: #1b1b3a;
+  --footerBgColor: #D1E467;
   --primaryFont: 'DM Sans', Arial, sans-serif;
   --secondaryFont: 'Aleo', Arial, sans-serif;
   --container-margin: 10vw;
@@ -20,6 +21,32 @@ body {
   color: var(--textColor);
   font-size: 1.4rem;
   line-height: 1.6;
+}
+
+footer {
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
+}
+
+.footer-left-content {
+  height: 475px;
+  width: 50%;
+  padding-left: var(--container-margin);
+  padding-right: var(--container-margin);
+  padding-top: 120px;
+  padding-bottom: 40px;
+  background-color: var(--footerBgColor);
+}
+
+.footer-right-content {
+  height: 460px;
+  width: 50%;
+  padding-left: var(--container-margin);
+  padding-right: var(--container-margin);
+  padding-top: 105px;
+  padding-bottom: 40px;
+  background-color: #ffffff;
 }
 
 .container {

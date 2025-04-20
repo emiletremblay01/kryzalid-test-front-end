@@ -10,6 +10,12 @@
             {% include 'partials/readme.twig' %}
         </div>
 
+        <div class="news-container">
+            {% for post in posts %}
+                {% include 'partials/news-card.twig' with { post: post } %}
+            {% endfor %}
+        </div>
+
         {% include 'partials/footer.twig' %}
 
         <script src="./js/script.js"></script>

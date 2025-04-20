@@ -3,9 +3,16 @@
         <img src="{{ post.thumbnail }}" alt="{{ post.title }}">
     </div>
     <div class="news-content">
-        <span class="news-category">Catégorie {{ post.categoryId }}</span>
+
         <h2 class="news-title">{{ post.title }}</h2>
         <p class="news-intro">{{ post.intro }}</p>
-        <time class="news-date">{{ post.date|date("d/m/Y") }}</time>
+
+
+
+        <div class="news-date-container">
+            <time class="news-date">{{ post.date|date("j F Y")|replace({'January': 'janvier', 'February': 'février', 'March': 'mars', 'April': 'avril', 'May': 'mai', 'June': 'juin', 'July': 'juillet', 'August': 'août', 'September': 'septembre', 'October': 'octobre', 'November': 'novembre', 'December': 'décembre'}) }}</time>
+            <span class="news-separator">|</span>
+            <span class="news-category">Catégorie {{ post.categoryId }}</span>
+        </div>
     </div>
 </article>

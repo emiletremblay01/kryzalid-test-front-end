@@ -1,15 +1,17 @@
-@use './utils/reset';
-@use './utils/readme';
+@use "./utils/reset";
+@use "./utils/readme";
 
-@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Aleo:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap");
 
 :root {
-  --bgColor: #EAEAE8;
-  --textColor: #1B2437;
-  --primaryFont: 'DM Sans', Arial, sans-serif;
-  --secondaryFont: 'Aleo', Arial, sans-serif;
+  --bgColor: #eaeae8;
+  --textColor: #1b2437;
+  --primaryFont: "DM Sans", Arial, sans-serif;
+  --secondaryFont: "Aleo", Arial, sans-serif;
   --container-margin: 10vw;
+  --primary-color: #007bff;
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
 }
 
 body {
@@ -17,6 +19,7 @@ body {
   background: var(--bgColor);
   color: var(--textColor);
   font-size: 1.4rem;
+  line-height: 1.6;
 }
 
 .container {
@@ -25,4 +28,142 @@ body {
   margin-left: auto;
   padding-left: var(--container-margin);
   padding-right: var(--container-margin);
+}
+
+// Header styles
+h1 {
+  font-family: var(--secondaryFont);
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+// Category filter styles
+.category-filter {
+  margin: 2rem 0;
+  position: relative;
+  width: 250px;
+}
+
+.filter-select {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-family: var(--primaryFont);
+  font-size: 1.4rem;
+  color: var(--textColor);
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+  transition: var(--transition);
+
+  &:hover {
+    border-color: var(--primary-color);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+}
+
+// News grid styles
+.news-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.news-item {
+  background: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.news-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.news-content {
+  padding: 1.5rem;
+}
+
+.news-category {
+  display: inline-block;
+  background: #f0f0f0;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.news-title {
+  font-family: var(--secondaryFont);
+  font-size: 1.8rem;
+  margin: 0 0 1rem;
+  line-height: 1.3;
+}
+
+.news-intro {
+  color: #666;
+  margin: 0 0 1rem;
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+.news-date {
+  display: block;
+  color: #999;
+  font-size: 1.2rem;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  :root {
+    --container-margin: 5vw;
+  }
+
+  .news-container {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+  }
+
+  .filter-select {
+    padding: 0.6rem 1.2rem;
+    font-size: 1.2rem;
+  }
 }

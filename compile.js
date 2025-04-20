@@ -2,26 +2,39 @@ const fs = require("fs");
 const path = require("path");
 const twig = require("twig");
 const chokidar = require("chokidar");
+const axios = require("axios");
 
 const twigSrc = "src/templates/index.twig";
 const twigOut = "dist/index.html";
 const jsSrc = "src/main.js";
 const jsOut = "dist/js/script.js";
 
-function compileTwig() {
-  twig.renderFile(twigSrc, {}, function (err, html) {
-    if (err) {
-      return console.error("Twig compile error:", err);
-    }
+async function compileTwig() {
+  try {
+    // Fetch posts using axios instead of fetch
+    const response = await axios.get("http://localhost:4000/posts");
+    const posts = response.data; // Axios automatically parses JSON
+    console.log(posts);
+    // Sort posts by date (newest first)
+    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    // Vérifier si le dossier dist existe, sinon le créer
-    if (!fs.existsSync(path.dirname(twigOut))) {
-      fs.mkdirSync(path.dirname(twigOut), { recursive: true });
-    }
+    // Render template with posts data
+    twig.renderFile(twigSrc, { posts }, function (err, html) {
+      if (err) {
+        return console.error("Twig compile error:", err);
+      }
 
-    fs.writeFileSync(twigOut, html);
-    console.log("✅ Twig compiled to dist/index.html");
-  });
+      // Vérifier si le dossier dist existe, sinon le créer
+      if (!fs.existsSync(path.dirname(twigOut))) {
+        fs.mkdirSync(path.dirname(twigOut), { recursive: true });
+      }
+
+      fs.writeFileSync(twigOut, html);
+      console.log("✅ Twig compiled to dist/index.html");
+    });
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+  }
 }
 
 function compileJS() {

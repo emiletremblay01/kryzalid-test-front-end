@@ -67,27 +67,26 @@ footer {
 // Header styles
 h1 {
   font-family: var(--secondaryFont);
-  font-size: 3.2rem;
+  font-size: 4.2rem;
   font-weight: 400;
   margin-bottom: 2rem;
 }
 
 // Category filter styles
 .category-filter {
-  margin: 2rem 0;
   position: relative;
   width: 250px;
 }
 
 .filter-select {
   width: 100%;
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 1rem;
   font-family: var(--primaryFont);
   font-size: 1.4rem;
   color: var(--textColor);
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: var(--border-radius);
+  background: var(--bgColor);
+  border: 2px solid;
+  border-radius: 9999px;
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;

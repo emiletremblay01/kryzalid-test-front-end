@@ -12,16 +12,20 @@
             </svg>
         </div>
         <div class="container">
-            <h1>Nouvelles</h1>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h1>Nouvelles</h1>
 
-            {# Change to dropdown filter #}
-            <div class="category-filter">
-                <select id="categorySelect" class="filter-select">
-                    <option value="all">Toutes les catégories</option>
-                    {% for categoryId in categoryIds %}
-                        <option value="{{ categoryId }}">Catégorie {{ categoryId }}</option>
-                    {% endfor %}
-                </select>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div>Afficher</div>
+                    <div class="category-filter">
+                        <select id="categorySelect" class="filter-select">
+                            <option value="all">Toutes</option>
+                            {% for categoryId in categoryIds %}
+                                <option value="{{ categoryId }}">Catégorie {{ categoryId }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
             </div>
 
             <div class="news-container">

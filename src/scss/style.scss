@@ -41,19 +41,65 @@ footer {
   background-color: var(--footerBgColor);
 }
 
+.footer-button {
+  background-color: white;
+  padding: 1.2rem 2.4rem;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  &:hover {
+    background-color: var(--textColor);
+    color: var(--footerBgColor);
+  }
+}
+
 .footer-right-content {
-  height: 460px;
+  height: 420px;
   width: 50%;
   padding-left: var(--container-margin);
   padding-right: var(--container-margin);
-  padding-top: 105px;
+  padding-top: 65px;
   padding-bottom: 40px;
   background-color: #ffffff;
+
+  a {
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--textColor);
+    transition: var(--transition);
+    display: block;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 }
 
 .socials {
   display: flex;
-  gap: 2px;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--textColor);
+  transition: var(--transition);
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+
+  span {
+    font-size: 1.4rem;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
 }
 
 .container {
@@ -69,7 +115,6 @@ h1 {
   font-family: var(--secondaryFont);
   font-size: 4.2rem;
   font-weight: 400;
-  margin-bottom: 2rem;
 }
 
 // Category filter styles

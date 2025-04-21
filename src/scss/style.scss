@@ -1,20 +1,32 @@
+/* ==========================================================================
+   Base Styles and Variables
+   ========================================================================== */
 @use "./utils/reset";
 @use "./utils/readme";
 
 @import url("https://fonts.googleapis.com/css2?family=Aleo:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap");
 
 :root {
+  /* Colors */
   --bgColor: #eaeae8;
   --textColor: #1b1b3a;
   --footerBgColor: #d1e467;
+
+  /* Typography */
   --primaryFont: "DM Sans", Arial, sans-serif;
   --secondaryFont: "Aleo", Arial, sans-serif;
-  --container-margin: 5vw;
 
+  /* Layout */
+  --container-margin: 5vw;
   --border-radius: 8px;
+
+  /* Effects */
   --transition: all 0.3s ease;
 }
 
+/* ==========================================================================
+   Global Styles
+   ========================================================================== */
 body {
   font-family: var(--primaryFont);
   background: var(--bgColor);
@@ -23,85 +35,12 @@ body {
   line-height: 1.6;
   position: relative;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
-footer {
-  display: flex;
-  width: 100%;
-  align-items: flex-end;
-}
-
-.footer-left-content {
-  height: 475px;
-  width: 50%;
-  padding-left: var(--container-margin);
-  padding-right: var(--container-margin);
-  padding-top: 120px;
-  padding-bottom: 40px;
-  background-color: var(--footerBgColor);
-}
-
-.footer-button {
-  background-color: white;
-  padding: 1.2rem 2.4rem;
-  border: none;
-  cursor: pointer;
-  transition: var(--transition);
-  &:hover {
-    background-color: var(--textColor);
-    color: var(--footerBgColor);
-  }
-}
-
-.footer-right-content {
-  height: 420px;
-  width: 50%;
-  padding-left: var(--container-margin);
-  padding-right: var(--container-margin);
-  padding-top: 65px;
-  padding-bottom: 40px;
-  background-color: #ffffff;
-
-  a {
-    text-decoration: none;
-    font-weight: 500;
-    color: var(--textColor);
-    transition: var(--transition);
-    display: block;
-    &:hover {
-      opacity: 0.7;
-    }
-  }
-}
-
-.socials {
-  display: flex;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.social-link {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  color: var(--textColor);
-  transition: var(--transition);
-
-  img {
-    width: 24px;
-    height: 24px;
-  }
-
-  span {
-    font-size: 1.4rem;
-  }
-
-  &:hover {
-    opacity: 0.7;
-  }
-}
-
+/* ==========================================================================
+   Layout Components
+   ========================================================================== */
 .container {
   margin-top: 100px;
   margin-right: auto;
@@ -110,14 +49,44 @@ footer {
   padding-right: var(--container-margin);
 }
 
-// Header styles
+/* ==========================================================================
+   Typography
+   ========================================================================== */
 h1 {
   font-family: var(--secondaryFont);
   font-size: 4.2rem;
   font-weight: 400;
 }
 
-// Category filter styles
+/* ==========================================================================
+   Background Elements
+   ========================================================================== */
+.background-shape {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 2284px;
+    min-height: 1282px;
+    width: auto;
+    height: auto;
+  }
+}
+
+/* ==========================================================================
+   News Section
+   ========================================================================== */
+/* Category Filter */
 .category-filter {
   position: relative;
   width: 250px;
@@ -153,7 +122,7 @@ h1 {
   }
 }
 
-// News grid styles
+/* News Container */
 .news-container {
   display: flex;
   flex-direction: column;
@@ -161,6 +130,7 @@ h1 {
   margin-top: 2rem;
 }
 
+/* News Item */
 .news-item {
   background: white;
   overflow: hidden;
@@ -171,6 +141,7 @@ h1 {
   justify-content: space-between;
   width: 100%;
   padding: 1rem;
+  cursor: pointer;
 
   &:hover {
     transform: translateY(-5px);
@@ -180,10 +151,8 @@ h1 {
 
 .news-content {
   padding: 1rem;
-
   display: flex;
   flex-direction: row;
-
   gap: 2rem;
 }
 
@@ -238,7 +207,87 @@ h1 {
   font-family: var(--secondaryFont);
 }
 
-// Responsive adjustments
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer {
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
+  margin-top: 100px;
+}
+
+.footer-left-content {
+  height: 475px;
+  width: 50%;
+  padding-left: var(--container-margin);
+  padding-right: var(--container-margin);
+  padding-top: 120px;
+  padding-bottom: 40px;
+  background-color: var(--footerBgColor);
+}
+
+.footer-button {
+  background-color: white;
+  padding: 1.2rem 2.4rem;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  &:hover {
+    background-color: var(--textColor);
+    color: var(--footerBgColor);
+  }
+}
+
+.footer-right-content {
+  height: 420px;
+  width: 50%;
+  padding-left: var(--container-margin);
+  padding-right: var(--container-margin);
+  padding-top: 65px;
+  padding-bottom: 40px;
+  background-color: #ffffff;
+
+  a {
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--textColor);
+    transition: var(--transition);
+    display: block;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+/* Social Links */
+.socials {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--textColor);
+  transition: var(--transition);
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+/* ==========================================================================
+   Responsive Styles
+   ========================================================================== */
 @media (max-width: 768px) {
   :root {
     --container-margin: 5vw;
@@ -269,27 +318,5 @@ h1 {
   .filter-select {
     padding: 0.6rem 1.2rem;
     font-size: 1.2rem;
-  }
-}
-
-.background-shape {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  pointer-events: none;
-  overflow: hidden;
-
-  svg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 2284px;
-    min-height: 1282px;
-    width: auto;
-    height: auto;
   }
 }

@@ -1,15 +1,15 @@
-@use './utils/reset';
-@use './utils/readme';
+@use "./utils/reset";
+@use "./utils/readme";
 
-@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Aleo:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap");
 
 :root {
   --bgColor: #eaeae8;
   --textColor: #1b1b3a;
-  --footerBgColor: #D1E467;
-  --primaryFont: 'DM Sans', Arial, sans-serif;
-  --secondaryFont: 'Aleo', Arial, sans-serif;
-  --container-margin: 10vw;
+  --footerBgColor: #d1e467;
+  --primaryFont: "DM Sans", Arial, sans-serif;
+  --secondaryFont: "Aleo", Arial, sans-serif;
+  --container-margin: 5vw;
 
   --border-radius: 8px;
   --transition: all 0.3s ease;
@@ -122,9 +122,10 @@ h1 {
   transition: var(--transition);
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   width: 100%;
-  padding: 2rem;
-  
+  padding: 1rem;
+
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -132,12 +133,21 @@ h1 {
 }
 
 .news-content {
-  padding: 2rem;
-  flex-grow: 1;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: row;
+
+  gap: 2rem;
+}
+
+.news-content-header {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  
+  flex-basis: 100%;
+  gap: 1rem;
+  height: 100%;
+  max-width: 740px;
 }
 
 .news-image {
@@ -145,7 +155,6 @@ h1 {
   height: auto;
   overflow: hidden;
   flex-shrink: 0;
-  
 
   img {
     width: 100%;
@@ -159,45 +168,28 @@ h1 {
   }
 }
 
-.news-category {
-  display: inline;
-  opacity: 0.7;
-  font-family: var(--primaryFont);
-}
-
 .news-title {
   font-family: var(--primaryFont);
   font-weight: 400;
-  font-size: 2.2rem;
-  margin: 0 0 1rem;
+  font-size: 2rem;
   line-height: 1.3;
 }
 
 .news-intro {
-  margin: 0 0 1.5rem;
-  font-size: 1.6rem;
+  font-size: 1rem;
   line-height: 1.5;
-  flex-grow: 1;
-}
-
-.news-date {
-  font-family: var(--secondaryFont);
-  font-weight: 400;
-  display: block;
-  opacity: 0.7;
-  font-size: 1.4rem;
-  margin-top: auto;
+  width: 300px;
 }
 
 .news-date-container {
+  font-weight: 400;
+  font-size: 1rem;
   display: flex;
   flex-direction: row;
-}
-
-.news-separator {
+  align-items: center;
   opacity: 0.7;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  gap: 0.5rem;
+  font-family: var(--secondaryFont);
 }
 
 // Responsive adjustments

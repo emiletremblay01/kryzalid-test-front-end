@@ -77,6 +77,11 @@ pnpm run start
 - Chaque article affiche une image, un titre, une introduction et une date
 - Les articles sont triés par date (du plus récent au plus ancien)
 
+### Pagination
+
+- Les articles sont paginés avec un bouton pour chaque page
+- La pagination est gérée par JavaScript
+
 ### Footer
 
 - Section gauche avec inscription à la newsletter et liens sociaux
@@ -86,8 +91,6 @@ pnpm run start
 
 ### 1. Amélioration de l'Aspect Responsive
 
-### 2. Système de Pagination
-
 ## Personnalisation
 
 ### Variables CSS
@@ -96,13 +99,20 @@ Les principales variables CSS sont définies dans `src/scss/style.scss` :
 
 ```scss
 :root {
+  /* Colors */
   --bgColor: #eaeae8;
+  --bgColorDarker: #d1d1d1;
   --textColor: #1b1b3a;
   --footerBgColor: #d1e467;
+
+  /* Typography */
   --primaryFont: "DM Sans", Arial, sans-serif;
   --secondaryFont: "Aleo", Arial, sans-serif;
+
+  /* Layout */
   --container-margin: 5vw;
-  --border-radius: 8px;
+
+  /* Effects */
   --transition: all 0.3s ease;
 }
 ```
